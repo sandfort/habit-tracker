@@ -25,5 +25,6 @@ $result = mysqli_query($db, $query);
 		Failed: <?php echo mysqli_error($db); ?>
 	    <?php } ?>
 	</table>
+	<a href="/index.php">back</a>
     </body>
 </html>
