@@ -6,5 +6,7 @@
             Date: <input type="date" name="date"><br>
 	    <input type="submit">
 	</form>
+
+	<a href="/list.php">list</a>
     </body>
 </html>

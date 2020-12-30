@@ -1,15 +1,9 @@
 <?php
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'webby');
-define('DB_PASSWORD', 'honk');
-define('DB_NAME', 'habit_tracker');
-
-global $db;
+require_once("config.php");
 
 $db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 $query = "insert into task (name, date) values (\"" . $_POST["task"] . "\", \"" . $_POST["date"] . "\");";
 
-global $result;
 $result = mysqli_query($db, $query);
 ?>
 
