@@ -1,10 +1,8 @@
 <?php
 require_once("config.php");
 
-$db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
-$query = "select name, date from task;";
-
-$result = mysqli_query($db, $query);
+$db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$result = $db->query("select name, date from task;");
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,14 +13,14 @@ $result = mysqli_query($db, $query);
 		<th>date</th>
 	    </tr>
 	    <?php if ($result) { ?>
-		<?php while ($row = mysqli_fetch_row($result)) { ?>
+		<?php while ($row = $result->fetch_row()) { ?>
 		    <tr>
 			<td><?php echo $row[0] ?></td>
 			<td><?php echo $row[1] ?></td>
 		    </tr>
 		<?php } ?>
 	    <?php } else { ?>
-		Failed: <?php echo mysqli_error($db); ?>
+		Failed: <?php echo $db->error(); ?>
 	    <?php } ?>
 	</table>
 	<a href="/index.php">back</a>

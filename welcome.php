@@ -1,26 +1,36 @@
 <?php
 require_once("config.php");
 
-$db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
-$result = mysqli_query($db, "insert into task (name, date) values (\"" . $_POST["task"] . "\", \"" . $_POST["date"] . "\");");
+$db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
-if ($result) {
-    $result = mysqli_query($db, "select date from task where name = \"" . $_POST["task"] . "\" order by date desc limit 1;");
-    $row = mysqli_fetch_row($result);
-    $last_date = $row[0];
+$result = $db->query("select date from task where name = \"" . $_POST["task"] . "\" order by date desc limit 1;");
+$row = $result->fetch_row();
+$last_date = $row[0];
+
+$today = date("Y-m-d");
+
+if ($last_date == $today) {
+    $error = "You've already completed this task on this date.";
 } else {
-    $error = mysqli_error($db);
+    $result = $db->query("insert into task (name, date) values (\"" . $_POST["task"] . "\", \"" . $_POST["date"] . "\");");
+
+    if ($result) {	
+	$gap = date_diff(date_parse($today), date_parse($last_date));
+    } else {
+	$error = $db->error();
+    }
 }
 ?>
 
 <!DOCTYPE html>
 <html>
     <body>
-	<?php if ($result) { ?>
-	    Task: <?=$_POST["task"]?><br>
-	    This task was last performed on: <?=$last_date?><br>
+	<?php if ($error) { ?>
+	    Failed: <?=$error?><br>
 	<?php } else { ?>
-	    Failed: <?=$error?>
+	    Task: <?=$_POST["task"]?><br>
+	    Last completed on: <?=$last_date?><br>
+	    Gap: <?=$gap?> day(s)<br>
 	<?php } ?>
 	<a href="/index.php">back</a>
     </body>

@@ -1,0 +1,11 @@
+{
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
+  "scripts": {
+    "test:integration": "phpunit --testsuite integration"
+  },
+  "require": {
+    "robmorgan/phinx": "^0.12.4"
+  }
+}
