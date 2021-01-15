@@ -1,7 +1,0 @@
-<phpunit bootstrap="test/setup.php">
-  <testsuites>
-    <testsuite name="integration">
-      <directory>test/integration</directory>
-    </testsuite>
-  </testsuites>
-</phpunit>
