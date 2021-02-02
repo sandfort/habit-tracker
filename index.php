@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html>
-    <body>
-	<form action="welcome.php" method="post">
-	    Task: <input type="text" name="task"><br>
-            Date: <input type="date" name="date"><br>
-	    <input type="submit">
-	</form>
+<?php
+declare(strict_types=1);
 
-	<a href="/list.php">list</a>
-    </body>
-</html>
+require('controllers/IndexController.php');
+
+$ctrl = new IndexController();
+
+$success = function() {
+    include('views/IndexView.php');
+};
+
+$ctrl->handle($success);
+
+?>

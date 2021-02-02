@@ -1,13 +1,4 @@
 {
-  "require-dev": {
-    "codeception/codeception": "^4.1",
-    "codeception/module-phpbrowser": "^1.0.0",
-    "codeception/module-asserts": "^1.0.0"
-  },
-  "scripts": {
-    "test": "codecept run",
-    "test:unit": "codecept run unit"
-  },
   "require": {
     "robmorgan/phinx": "^0.12.4"
   }
