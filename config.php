@@ -1,6 +1,6 @@
 <?php
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'webby');
-define('DB_PASSWORD', 'honk');
-define('DB_NAME', 'habit_tracker');
+define('DB_SERVER', getenv('DB_SERVER'));
+define('DB_USERNAME', getenv('DB_USERNAME'));
+define('DB_PASSWORD', getenv('DB_PASSWORD'));
+define('DB_NAME', getenv('DB_NAME'));
 ?>
