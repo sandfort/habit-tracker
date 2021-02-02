@@ -24,24 +24,24 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => '4612fdabe8bf4a0d93c9a9c23aeb97260700dc30',
+    'reference' => '7754a71598b51cc13c760eefda6e6d877e39ba4e',
     'name' => '__root__',
   ),
   'versions' => 
   array (
     '__root__' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => '4612fdabe8bf4a0d93c9a9c23aeb97260700dc30',
+      'reference' => '7754a71598b51cc13c760eefda6e6d877e39ba4e',
     ),
     'cakephp/core' => 
     array (
