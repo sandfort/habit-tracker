@@ -15,7 +15,7 @@ class LogController {
 
 	if (!$result) {
 	    echo $this->db->error;
-	    return();
+	    return;
 	}
 
 	$row = $result->fetch_row();
@@ -32,7 +32,7 @@ class LogController {
 		$success($task);
 	    } else {
 		$error($this->db->error);
-		return();
+		return;
 	    }
 	}
     }
